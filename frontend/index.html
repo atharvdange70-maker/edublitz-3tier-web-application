@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBlitz — Course Enquiry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header-inner">
+                <div class="logo">
+                    <span class="logo-icon">◆</span>
+                    <span class="logo-text">EduBlitz</span>
+                </div>
+                <p class="tagline">3-Tier Web Application · Course Enquiries</p>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="form-section">
+                <div class="card form-card">
+                    <h2 class="card-title">Submit an Enquiry</h2>
+                    <p class="card-desc">Your data is stored securely in Amazon RDS MySQL.</p>
+
+                    <form id="enquiry-form" class="enquiry-form">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name">
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email">
+                        </div>
+                        <div class="field">
+                            <label for="course">Course</label>
+                            <input type="text" id="course" name="course" required placeholder="e.g. AWS Fundamentals">
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Your message or question"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span class="btn-text">Submit Enquiry</span>
+                        </button>
+                    </form>
+
+                    <div id="message-box" class="message-box hidden" role="alert"></div>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <div class="list-header">
+                    <h2 class="card-title">Submitted Enquiries</h2>
+                    <button type="button" class="btn btn-ghost" id="refresh-btn" aria-label="Refresh list">
+                        <span class="refresh-icon" aria-hidden="true">↻</span> Refresh
+                    </button>
+                </div>
+                <div id="enquiries-list" class="enquiries-list">
+                    <div id="enquiries-loading" class="state-message loading">Loading enquiries…</div>
+                    <div id="enquiries-empty" class="state-message empty hidden">No enquiries yet. Submit one above.</div>
+                    <div id="enquiries-error" class="state-message error hidden"></div>
+                    <div id="enquiries-cards" class="enquiries-cards"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Web Tier: CloudFront + S3 → App Tier: EC2 Java API → Database Tier: RDS MySQL</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
